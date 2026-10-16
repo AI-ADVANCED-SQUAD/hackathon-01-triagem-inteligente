@@ -1,5 +1,6 @@
 from models.ticket import Ticket
 
+
 def create_ticket_model(ticket: dict):
     return Ticket(
         title=ticket.get("titulo") or "Sem título",
@@ -7,7 +8,8 @@ def create_ticket_model(ticket: dict):
         subject=ticket.get("assunto") or "Suporte geral",
         description=ticket.get("descricao") or "",
         priority=ticket.get("prioridade") or "Média",
-        priority_justification=ticket.get("justificativa_prioridade") or "Justificativa não informada",
+        priority_justification=ticket.get("justificativa_prioridade")
+        or "Justificativa não informada",
         category=ticket.get("categoria") or "Categoria não informada",
         tone=ticket.get("tom") or "Tom não informado",
         sentiment=ticket.get("sentimento") or "Sentimento não informado",

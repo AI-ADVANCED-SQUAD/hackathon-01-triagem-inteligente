@@ -10,7 +10,7 @@ class OpenAIService:
             api_key=settings.OPENAI_API_KEY,
             base_url=settings.OPENAI_BASE_URL,
         )
-    
+
     def get_response(self, messages):
         response = self.client.beta.chat.completions.parse(
             model=settings.OPENAI_MODEL,

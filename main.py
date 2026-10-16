@@ -5,24 +5,27 @@ import pandas as pd
 import streamlit as st
 
 from config.database import Database
-from services.openai_service import OpenAIService
 from services.ingestion_service import map_row
-from utils import load_prompt, get_user_prompt, create_ticket_model
+from services.openai_service import OpenAIService
+from utils import create_ticket_model, get_user_prompt, load_prompt
 
 
 @st.cache_resource
 def get_openai_service():
     return OpenAIService()
 
+
 @st.cache_resource
 def get_prompt():
     return load_prompt("system_prompt")
+
 
 @st.cache_resource
 def get_database():
     database = Database()
     database.create_tables()
     return database
+
 
 @contextmanager
 def get_session():
@@ -37,6 +40,7 @@ def get_session():
         raise e
     finally:
         session.close()
+
 
 ai = get_openai_service()
 system_prompt = get_prompt()
@@ -82,7 +86,7 @@ if uploaded_file is not None:
                 response = ai.get_response(messages)
                 response = json.loads(response.model_dump_json(indent=2))
                 base = base | response
-                
+
                 with get_session() as session:
                     ticket_model = create_ticket_model(base)
                     session.add(ticket_model)

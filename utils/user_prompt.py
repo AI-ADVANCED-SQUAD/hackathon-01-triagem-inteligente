@@ -1,11 +1,8 @@
 from textwrap import dedent
 
+
 def get_user_prompt(
-    title: str,
-    client_name: str,
-    subject: str,
-    channel: str,
-    description: str
+    title: str, client_name: str, subject: str, channel: str, description: str
 ) -> str:
     return dedent(f"""
         Por favor, faça a triagem do chamado abaixo, considerando
