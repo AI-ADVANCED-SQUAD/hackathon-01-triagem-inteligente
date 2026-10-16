@@ -86,7 +86,8 @@ main.py
 ### 1. Clonar / entrar na pasta
 
 ```bash
-cd triagem-chamados
+git clone https://github.com/AI-ADVANCED-SQUAD/hackathon-01-triagem-inteligente.git
+cd hackathon-01-triagem-inteligente
 ```
 
 ### 2. Criar e ativar o venv
