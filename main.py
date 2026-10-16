@@ -66,8 +66,13 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
     with st.spinner("Processando arquivo..."):
-        df = pd.read_excel(uploaded_file)
+        if uploaded_file.name.endswith(".csv"):
+            df = pd.read_csv(uploaded_file)
+        else:
+            df = pd.read_excel(uploaded_file)
+
         st.dataframe(df)
+        st.space()
 
         if st.button(f"Triar e salvar {len(df)} chamados"):
             for record in df.to_dict(orient="records"):

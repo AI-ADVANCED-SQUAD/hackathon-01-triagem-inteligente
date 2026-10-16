@@ -244,15 +244,6 @@ flake8
 
 Config do flake8 em `.flake8` (`ignore=E501,W503`, `exclude=.venv`).
 
-## 🗺️ Roadmap
-
-- [x] Dashboard com métricas, gráficos Plotly e filtros (`pages/dashboard.py`)
-- [ ] Suporte real a `.csv` no upload em lote (`read_csv` vs `read_excel`)
-- [ ] Paginação/progresso no processamento em lote
-- [ ] Persistir `Data de abertura` e `Status` da planilha
-- [ ] Testes automatizados
-- [ ] Docker + `docker-compose`
-
 ## 🔧 Troubleshooting
 
 | Problema                            | Causa provável / solução                                                                                         |
